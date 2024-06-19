@@ -31,6 +31,7 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation group: 'io.springfox', name: 'springfox-boot-starter', version: '3.0.0'
     implementation group: 'io.springfox', name: 'springfox-swagger2', version: '3.0.0'
+    implementation 'io.springfox:springfox-swagger-ui:2.9.2'
     implementation group: 'io.github.openfeign', name: 'feign-okhttp', version: '13.2.1'
 	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
