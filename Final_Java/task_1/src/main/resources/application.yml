@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/postgres
+    username: max
+    password: new_max
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update # or create-drop (use carefully in development)
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
