@@ -9,11 +9,10 @@ import jakarta.servlet.annotation.*;
 
 @WebServlet(name = "SupportingServlet", value = "/help-service/v1/support")
 public class SupportingServlet extends HttpServlet {
-    private SupportingService supportingService;
+    private SupportingService supportingService = SupportingServiceFactory.getINSTANCE();
 
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
-        supportingService = SupportingServiceFactory.getINSTANCE();
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {

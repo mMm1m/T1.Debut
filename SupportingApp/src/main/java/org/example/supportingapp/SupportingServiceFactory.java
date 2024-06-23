@@ -1,12 +1,9 @@
 package org.example.supportingapp;
 
 public class SupportingServiceFactory {
-    private static volatile SupportingServiceImpl INSTANCE;
+    // избежание проблем с многопоточностью синглтона
+    private static final SupportingServiceImpl INSTANCE = new SupportingServiceImpl();
     public static SupportingService getINSTANCE(){
-        if(INSTANCE == null) INSTANCE = new SupportingServiceImpl();
-        synchronized (SupportingServiceImpl.class){
-            if(INSTANCE == null) INSTANCE = new SupportingServiceImpl();
-        }
         return INSTANCE;
     }
 }
