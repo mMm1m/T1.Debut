@@ -13,7 +13,7 @@ public class SupportingServlet extends HttpServlet {
 
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
-        this.supportingService = new SupportingService();
+        supportingService = SupportingServiceFactory.getINSTANCE();
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
