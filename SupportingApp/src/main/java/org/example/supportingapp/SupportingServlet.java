@@ -1,15 +1,25 @@
 package org.example.supportingapp;
 
 import java.io.*;
+import java.lang.reflect.InvocationTargetException;
 
 import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
+import jakarta.servlet.ServletRegistration;
+
 @WebServlet(name = "SupportingServlet", value = "/help-service/v1/support")
 public class SupportingServlet extends HttpServlet {
-    private SupportingService supportingService = SupportingServiceFactory.getINSTANCE();
+    ApplicationContext context = new ApplicationContext();
+
+    private SupportingService supportingService = context.getInstance(SupportingService.class);
+    public SupportingServlet(SupportingService service) throws InvocationTargetException, IllegalAccessException {
+        this.supportingService = service;
+    }
+    public SupportingServlet() throws InvocationTargetException, IllegalAccessException {}
 
     public void init(ServletConfig config) throws ServletException {
         super.init(config);

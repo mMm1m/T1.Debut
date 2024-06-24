@@ -1,7 +1,6 @@
 package org.example.supportingapp;
 
 public class SupportingServiceImpl implements SupportingService {
-    // синглтон
     private SupportingRepository supportingRepository;
 
     public SupportingServiceImpl(){
