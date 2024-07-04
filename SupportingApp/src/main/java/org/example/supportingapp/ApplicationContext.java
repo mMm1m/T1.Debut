@@ -9,7 +9,6 @@ import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class ApplicationContext {
     private Map<Class<?>, Object> instances = new HashMap<>();
@@ -36,11 +35,11 @@ public class ApplicationContext {
                     .filter(method -> method.isAnnotationPresent(Instance.class))
                     .toList();
             for (Method method : methods) {
-                System.out.println(method.getName());
                 instances.put(method.getReturnType(), method.invoke(conf));
             }
         }
     }
+
     public <T> T getInstance(Class<T> type){
         return type.cast(instances.get(type));
     }

@@ -1,5 +1,6 @@
 package org.example.supportingapp.configuration;
 
+import org.example.supportingapp.SupportManager;
 import org.example.supportingapp.SupportingService;
 import org.example.supportingapp.SupportingServiceImpl;
 import org.example.supportingapp.SupportingServlet;
@@ -13,7 +14,7 @@ public class SupportConfiguration {
         return new SupportingServiceImpl();
     }
     @Instance
-    public SupportingServlet supportingServlet() throws InvocationTargetException, IllegalAccessException {
+    public SupportManager supportingServlet() throws InvocationTargetException, IllegalAccessException {
         return new SupportingServlet(supportingService());
     }
 }
